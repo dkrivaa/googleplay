@@ -21,7 +21,6 @@ jobs:
           python-version: 3.11
 
       - name: Install dependencies
-        if: steps.cache.outputs.cache-hit != 'true'
         run: |
           pip install gspread google-auth 
       

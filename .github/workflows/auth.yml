@@ -3,8 +3,6 @@ name: Google Sheets test
 on:
   workflow_dispatch:
 
-
-
 jobs:
   run_python:
     runs-on: ubuntu-latest
@@ -27,5 +25,5 @@ jobs:
           credentials_json_string = os.environ.get("CREDENTIALS_JSON")
           sheet_id = os.environ.get("SHEET_ID")
           # Authenticate with Google Sheets API using the service account JSON key
-          python main.py  # Replace with your Python script to update Google Sheets
+          python main.py  ${{ secrets.CREDENTIALS_JSON }} ${{ secrets.SHEET_ID }}
         

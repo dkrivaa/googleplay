@@ -5,7 +5,7 @@ from google.oauth2.service_account import Credentials
 import os
 import json
 
-credentials_json_string = os.environ.get('credentials_json')
+credentials_json_string = os.environ.get('credentials_json_string')
 
 print(credentials_json_string)
 

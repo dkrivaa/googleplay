@@ -23,8 +23,8 @@ jobs:
       
       - name: test Google Sheets
         run: |
-          echo "Credentials JSON: ${{ secrets.CREDENTIALS_JSON }}"
-          echo "Sheet ID: ${{ secrets.SHEET_ID }}"
+          credentials_json: ${{ secrets.CREDENTIALS_JSON }}"
+          sheet_id: ${{ secrets.SHEET_ID }}"
           # Authenticate with Google Sheets API using the service account JSON key
           python main.py  # Replace with your Python script to update Google Sheets
         

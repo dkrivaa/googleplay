@@ -3,6 +3,10 @@ name: Google Sheets test
 on:
   workflow_dispatch:
 
+env:
+  credentials_json_string: ${{ secrets.CREDENTIALS_JSON }}
+  sheet_id: ${{ secrets.SHEET_ID }}
+
 jobs:
   run_python:
     runs-on: ubuntu-latest
@@ -21,9 +25,5 @@ jobs:
       
       - name: test Google Sheets
         run: |
-          # Access secrets securely (avoid echoing)
-          credentials_json=$(os.environ.get("CREDENTIALS_JSON"))
-          sheet_id=$(os.environ.get("SHEET_ID"))
-          # Authenticate with Google Sheets API using the service account JSON key
-          python main.py  ${{ secrets.CREDENTIALS_JSON }} ${{ secrets.SHEET_ID }}
+          python main.py  
         

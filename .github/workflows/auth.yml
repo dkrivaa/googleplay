@@ -23,8 +23,9 @@ jobs:
       
       - name: test Google Sheets
         run: |
-          credentials_json: ${{ secrets.CREDENTIALS_JSON }}"
-          sheet_id: ${{ secrets.SHEET_ID }}"
+          # Access secrets securely (avoid echoing)
+          credentials_json_string = os.environ.get("CREDENTIALS_JSON")
+          sheet_id = os.environ.get("SHEET_ID")
           # Authenticate with Google Sheets API using the service account JSON key
           python main.py  # Replace with your Python script to update Google Sheets
         

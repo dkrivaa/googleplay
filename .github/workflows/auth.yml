@@ -1,0 +1,31 @@
+name: Google Sheets test
+
+on:
+  workflow_dispatch:
+
+env:
+    credentials_json: ${{ secrets.CREDENTIALS_JSON }}
+    sheet_id: ${{ secrets.SHEET_ID }}
+
+jobs:
+  run_python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11
+      
+      - name: Install dependencies
+        run: |
+          pip install gspread google-auth
+      
+      - name: test Google Sheets
+        run: |
+          
+          # Authenticate with Google Sheets API using the service account JSON key
+          python main.py  # Replace with your Python script to update Google Sheets
+        

@@ -1,4 +1,4 @@
-name: Google Sheets Update
+name: Google Sheets test
 
 on:
   workflow_dispatch:
@@ -17,13 +17,13 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.8
+          python-version: 3.11
       
       - name: Install dependencies
         run: |
           pip install gspread google-auth
       
-      - name: Update Google Sheets
+      - name: test Google Sheets
         run: |
           # Decode the base64 encoded service account JSON key
           echo "$CREDENTIALS_JSON" | base64 --decode > service_account.json

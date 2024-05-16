@@ -16,7 +16,7 @@ client = gspread.authorize(creds)
 
 book = client.open_by_key(sheet_id)
 
-book.sheet1.update([[11, 12], [13, 14]], 'A1:B2')
+book.sheet1.update([[1, 2], [3, 4]], 'A1:B2')
 # values_list = book.sheet1.row_values(1)
 # print(values_list)
 

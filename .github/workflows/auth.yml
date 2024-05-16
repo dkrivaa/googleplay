@@ -20,9 +20,16 @@ jobs:
         with:
           python-version: 3.11
 
+      - uses: actions/cache@v3
+        id: cache
+        with:
+          path: ${{ env.pythonLocation }}
+          key: ubuntu-latest-python-${{ env.pythonLocation }}-${{ hashFiles('requirements.txt') }}-basic
+
       - name: Install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
         run: |
-          pip install gspread google-auth 
+          pip install requirements.txt 
       
       - name: test Google Sheets
         run: |

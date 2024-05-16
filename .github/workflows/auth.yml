@@ -8,7 +8,7 @@ env:
     sheet_id: ${{ secrets.SHEET_ID }}
 
 jobs:
-  update_sheet:
+  run_python:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
